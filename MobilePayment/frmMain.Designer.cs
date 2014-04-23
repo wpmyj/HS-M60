@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem();
             this.imageList1 = new System.Windows.Forms.ImageList();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.cEmvpbocBank = new Devices.CEmvpboc(this.components);
-            this.cEmvpbocVip = new Devices.CEmvpboc(this.components);
             this.SuspendLayout();
             // 
             // button_1
@@ -64,18 +62,23 @@
             this.imageList1.Images.Add(((System.Drawing.Image)(resources.GetObject("resource"))));
             this.imageList1.Images.Add(((System.Drawing.Image)(resources.GetObject("resource1"))));
             this.imageList1.Images.Add(((System.Drawing.Image)(resources.GetObject("resource2"))));
+            this.imageList1.Images.Add(((System.Drawing.Image)(resources.GetObject("resource3"))));
+            this.imageList1.Images.Add(((System.Drawing.Image)(resources.GetObject("resource4"))));
             // 
             // listView1
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
+            listViewItem1.ImageIndex = 4;
+            listViewItem1.Tag = "SalePay";
+            listViewItem1.Text = "    商品销售";
+            this.listView1.Items.Add(listViewItem1);
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(234, 258);
             this.listView1.SmallImageList = this.imageList1;
             this.listView1.TabIndex = 7;
-            this.listView1.View = System.Windows.Forms.View.SmallIcon;
+            this.listView1.TabStop = false;
             this.listView1.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
             // 
             // FrmMain
@@ -87,7 +90,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMain";
             this.Text = "Hisense";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.FrmMain_Closing);
             this.Controls.SetChildIndex(this.listView1, 0);
             this.Controls.SetChildIndex(this.button_4, 0);
             this.Controls.SetChildIndex(this.button_1, 0);
@@ -100,14 +105,8 @@
         #endregion
 
 
-        protected override void NextStep()
-        {
-            throw new System.NotImplementedException();
-        }
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ListView listView1;
-        private Devices.CEmvpboc cEmvpbocBank;
-        private Devices.CEmvpboc cEmvpbocVip;
     }
 }
 

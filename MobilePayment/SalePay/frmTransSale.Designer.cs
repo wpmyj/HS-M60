@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSaleNo = new System.Windows.Forms.TextBox();
             this.tbSaleInfo = new System.Windows.Forms.TextBox();
-            this.cSideBtn1 = new Devices.CSideBtn(this.components);
-            this.cScanner1 = new Devices.CScanner(this.components);
-            this.cBuzzer1 = new Devices.CBuzzer(this.components);
             this.SuspendLayout();
             // 
             // button_1
@@ -89,18 +85,6 @@
             this.tbSaleInfo.Size = new System.Drawing.Size(234, 196);
             this.tbSaleInfo.TabIndex = 5;
             // 
-            // cSideBtn1
-            // 
-            this.cSideBtn1.OnPressRightButton += new System.EventHandler(this.cSideBtn1_OnPressRightButton);
-            // 
-            // cScanner1
-            // 
-            this.cScanner1.OnRecvData += new System.EventHandler<Devices.ScanRecvDataEventArgs>(this.cScanner1_OnRecvData);
-            // 
-            // cBuzzer1
-            // 
-            this.cBuzzer1.BeepFrequency = 8;
-            // 
             // FrmTransSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -112,9 +96,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmTransSale";
             this.Text = "TransSale";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Load += new System.EventHandler(this.FrmTransSale_Load);
-            this.Activated += new System.EventHandler(this.FrmTransSale_Activated);
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.FrmTransSale_Closing);
             this.Controls.SetChildIndex(this.tbSaleNo, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.button_4, 0);
@@ -131,9 +114,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbSaleNo;
         private System.Windows.Forms.TextBox tbSaleInfo;
-        private Devices.CSideBtn cSideBtn1;
-        private Devices.CScanner cScanner1;
-        private Devices.CBuzzer cBuzzer1;
 
     }
 }

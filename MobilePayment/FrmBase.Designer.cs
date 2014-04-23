@@ -44,7 +44,7 @@
             // 
             // button_1
             // 
-            this.button_1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.button_1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.button_1.Location = new System.Drawing.Point(0, 267);
             this.button_1.Name = "button_1";
             this.button_1.Size = new System.Drawing.Size(60, 30);
@@ -53,7 +53,7 @@
             // 
             // button_2
             // 
-            this.button_2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.button_2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.button_2.Location = new System.Drawing.Point(60, 267);
             this.button_2.Name = "button_2";
             this.button_2.Size = new System.Drawing.Size(60, 30);
@@ -62,7 +62,7 @@
             // 
             // button_3
             // 
-            this.button_3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.button_3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.button_3.Location = new System.Drawing.Point(120, 267);
             this.button_3.Name = "button_3";
             this.button_3.Size = new System.Drawing.Size(60, 30);
@@ -71,7 +71,7 @@
             // 
             // button_4
             // 
-            this.button_4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular);
+            this.button_4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.button_4.Location = new System.Drawing.Point(180, 267);
             this.button_4.Name = "button_4";
             this.button_4.Size = new System.Drawing.Size(60, 30);
@@ -94,14 +94,13 @@
             this.Controls.Add(this.button_2);
             this.Controls.Add(this.button_1);
             this.Controls.Add(this.statusBar1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmBase";
             this.Text = "FrmBase";
             this.Load += new System.EventHandler(this.FrmBase_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmBase_KeyDown);
             this.ResumeLayout(false);
 
         }

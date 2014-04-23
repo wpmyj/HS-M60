@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Pub;
 
 namespace MobilePayment
 {
@@ -24,9 +23,9 @@ namespace MobilePayment
         private void SetStatusBar()
         {
             StringBuilder StrBuilder = new StringBuilder();
-            if (PubGlobal.User != null)
+            if (PubGlobal.Cur_User != null)
             {
-                StrBuilder.AppendFormat("操作员：{0}-{1}   时间：{2} ", new string[] { PubGlobal.User.UserCode, PubGlobal.User.USERNAME, DateTime.Now.ToString("HH:mm:ss") });
+                StrBuilder.AppendFormat("操作员：{0}-{1}   时间：{2} ", new string[] { PubGlobal.Cur_User.UserCode, PubGlobal.Cur_User.UserName, DateTime.Now.ToString("HH:mm:ss") });
             }
             this.statusBar1.Text = StrBuilder.ToString();
         }
@@ -41,7 +40,7 @@ namespace MobilePayment
         public void ShowWait()
         {
             waitForm.Show();
-            this.Enabled = false;
+            //this.Enabled = false;
             Application.DoEvents();
         }
         /// <summary>
@@ -50,7 +49,7 @@ namespace MobilePayment
         public void HideWait()
         {
             waitForm.Hide();
-            this.Enabled = true;
+            //this.Enabled = true;
             this.Focus();
             Application.DoEvents();
         }
@@ -74,19 +73,6 @@ namespace MobilePayment
         }
         #endregion
 
-        /// <summary>
-        /// 下一步操作
-        /// </summary>
-        protected virtual void NextStep()
-        {
-
-        }
-        /// <summary>
-        /// 上一步
-        /// </summary>
-        protected virtual void PreStep()
-        {
-        }
 
         private void FrmBase_Load(object sender, EventArgs e)
         {
@@ -98,18 +84,6 @@ namespace MobilePayment
             SetStatusBar();
         }
 
-        private void FrmBase_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Enter:
-                    NextStep();
-                    break;
-                case Keys.Escape:
-                    PreStep();
-                    break;
-            }
-        }
 
     }
 }

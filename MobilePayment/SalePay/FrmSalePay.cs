@@ -6,10 +6,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
-using Pub;
-using Base;
-using Model.TransModel;
-using DAL;
 
 namespace MobilePayment.SalePay
 {
@@ -20,111 +16,190 @@ namespace MobilePayment.SalePay
             InitializeComponent();
         }
         FrmPayType PayTypeBox = new FrmPayType();
-        FrmMoneyInput EnterBox = new FrmMoneyInput();
-
-        int serialno = 1;
-        private void button_1_Click(object sender, EventArgs e)
+        FrmEnterBox EnterBox = new FrmEnterBox();
+        /// <summary>
+        /// 现金支付
+        /// </summary>
+        private void CashPay()
         {
-            string msg;
-            string refNo;
-            decimal SsMoney=0;
-            if (PayTypeBox.ShowDialog() == DialogResult.OK)
+            Model.CSalSalePay tSalSalePay = new Model.CSalSalePay();
+            tSalSalePay.ZfCode = "01";
+            tSalSalePay.ZfNo = "01";
+            tSalSalePay.ZfName = "现金";
+            tSalSalePay.PosNo = PubGlobal.PosNo;
+            if (EnterBox.ShowDialog() == DialogResult.OK)
             {
-                //选定付款方式
-                TSalSalePay tSalSalePay = new TSalSalePay();
-                tSalSalePay.ZFCODE = PayTypeBox.PayType.PAYCODE;
-                tSalSalePay.ZFNO = string.Empty;
-                tSalSalePay.VIPNO = string.Empty;
-                switch (PayTypeBox.PayType.PAYTYPE)
+                tSalSalePay.ZfTotal = EnterBox.Value*(PubGlobal.SaleBack?-1:1);
+            }
+            else
+            {
+                return;
+            }
+            tSalSalePay.SaleNo = PubGlobal.Cur_tSalSale.SaleNo;
+            tSalSalePay.SerialNo = ++PubGlobal.SalePaySerialNo;
+            PubGlobal.Cur_tSalSalePayList.Add(tSalSalePay);//输入完毕，加入付款流水
+            StringBuilder strBuilder = new StringBuilder();
+            strBuilder.AppendFormat("{0}-【{1}】  {2}元 \r\n", new string[] { tSalSalePay.SerialNo.ToString(), "现金", tSalSalePay.ZfTotal.ToString("F2") });
+            tbPayList.Text += strBuilder.ToString();
+            strBuilder.Remove(0, strBuilder.Length);
+            if (PubGlobal.SaleBack)
+            {
+                PubGlobal.Cur_TradeSucess = PubGlobal.Cur_Sale_YETotal - tSalSalePay.ZfTotal >= 0;
+            }
+            else
+            {
+                PubGlobal.Cur_TradeSucess = PubGlobal.Cur_Sale_YETotal - tSalSalePay.ZfTotal <= 0;
+            }
+            if (PubGlobal.Cur_TradeSucess)
+            {
+                decimal charge;
+                charge = tSalSalePay.ZfTotal - PubGlobal.Cur_Sale_YETotal;//找零金额
+                tSalSalePay.SsTotal = tSalSalePay.ZfTotal - charge;
+                PubGlobal.Cur_tSalSale.SsTotal += tSalSalePay.SsTotal;
+                //允许找零
+                strBuilder.AppendFormat("  【找零】{0}元\r\n", charge.ToString("F2"));
+                tbPayList.Text += strBuilder.ToString();
+            }
+            else
+            {
+                tSalSalePay.SsTotal = tSalSalePay.ZfTotal;
+            }
+            PubGlobal.Cur_Sale_PayTotal += tSalSalePay.SsTotal;
+        }
+
+        /// <summary>
+        /// 银行卡支付
+        /// </summary>
+        private void BankCardPay()
+        {
+            if (EnterBox.ShowDialog() == DialogResult.OK)
+            {
+                if (EnterBox.Value > PubGlobal.Cur_Sale_YETotal)
                 {
-                    case "2"://银联卡
-
-                        //if (!Devices.Emvpboc.SendPay(PubGlobal.Cur_Sale_YETotal, Devices.Emvpboc.ActionType.消费, out SsMoney, out msg))
-                        //{
-                        //    MessageBox.Show("银联支付失败：" + msg);
-                        //    return;
-                        //}
-                        SsMoney = PubGlobal.Cur_Sale_YETotal;
-                        if (!cEmvpbocBank.Action(Devices.CEmvpboc.ActionType.消费, ref SsMoney, out refNo, out msg))
-                        {
-                            MessageBox.Show("银联支付失败：" + msg);
-                            return;
-                        }
-                        else
-                        {
-                            tSalSalePay.SSTOTAL = SsMoney.ToString("F2");
-                            tSalSalePay.ZFTOTAL = SsMoney.ToString("F2");
-                            tSalSalePay.ZFNO = refNo;
-                        }
-                        break;
-                    case "1"://储值卡
-                        SsMoney = PubGlobal.Cur_Sale_YETotal;
-                        if (!cEmvpbocBank.Action(Devices.CEmvpboc.ActionType.消费, ref SsMoney, out refNo, out msg))
-                        {
-                            MessageBox.Show("储值卡支付失败：" + msg);
-                            return;
-                        }
-                        else
-                        {
-                            tSalSalePay.SSTOTAL = SsMoney.ToString("F2");
-                            tSalSalePay.ZFTOTAL = SsMoney.ToString("F2");
-                            tSalSalePay.ZFNO = refNo;
-                        }
-                        break;
-                    default://其他
-
-                        if (EnterBox.ShowDialog() == DialogResult.OK)
-                        {
-                            try
-                            {
-                                SsMoney = decimal.Parse(EnterBox.Value);//尝试转换为数字
-                            }
-                            catch
-                            {
-                                MessageBox.Show("输入错误！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                                SsMoney = 0;
-                                return;
-                            }
-                        }
-                        else
-                        {
-                            return;
-                        }
-                        break;
+                    MessageBox.Show("银行卡金额不允许大于余额！");
+                    return;
                 }
-
-                tSalSalePay.ZFTOTAL = SsMoney.ToString("F2");
-                tSalSalePay.SALENO = PubGlobal.Cur_tSalSale[0].SALENO;
-                tSalSalePay.SERIALNO = (serialno++).ToString();
-                tSalSalePay.ORGCODE = PubGlobal.OrgCode;
+                Model.CSalSalePay tSalSalePay = new Model.CSalSalePay();
+                tSalSalePay.ZfCode = PayTypeBox.PayType.PayCode;
+                tSalSalePay.ZfNo = PayTypeBox.PayType.PayCode;
+                tSalSalePay.ZfName = PayTypeBox.PayType.PayName;
+                tSalSalePay.ZfTotal = EnterBox.Value;
+                tSalSalePay.SsTotal = EnterBox.Value;
+                tSalSalePay.PosNo = PubGlobal.PosNo;
+                tSalSalePay.SaleNo = PubGlobal.Cur_tSalSale.SaleNo;
+                tSalSalePay.SerialNo = ++PubGlobal.SalePaySerialNo;
                 PubGlobal.Cur_tSalSalePayList.Add(tSalSalePay);//输入完毕，加入付款流水
+                PubGlobal.Cur_tSalSale.SsTotal += tSalSalePay.SsTotal;
                 StringBuilder strBuilder = new StringBuilder();
-                strBuilder.AppendFormat("{0}-【{1}】  {2}元 \r\n", new string[] { tSalSalePay.SERIALNO, PayTypeBox.PayType.PAYNAME, decimal.Parse(tSalSalePay.ZFTOTAL).ToString("F2") });
+                strBuilder.AppendFormat("{0}-【{1}】  {2}元 \r\n", new string[] { tSalSalePay.SerialNo.ToString(), PayTypeBox.PayType.PayName, tSalSalePay.ZfTotal.ToString("F2") });
                 tbPayList.Text += strBuilder.ToString();
                 strBuilder.Remove(0, strBuilder.Length);
-                PubGlobal.Cur_TradeSucess = PubGlobal.Cur_Sale_YETotal - decimal.Parse(tSalSalePay.ZFTOTAL) <= 0;
+                PubGlobal.Cur_TradeSucess =true;
+                tSalSalePay.SsTotal = tSalSalePay.ZfTotal;
+                PubGlobal.Cur_Sale_PayTotal += tSalSalePay.SsTotal;
+            }
+        }
+
+        bool isTrade = false;
+        private void button_1_Click(object sender, EventArgs e)
+        {
+            if (PubGlobal.SaleBack)
+            {
+                //退货
+                CashPay();
                 if (PubGlobal.Cur_TradeSucess)
                 {
-                    decimal charge;
-                    if (PayTypeBox.PayType.ISCHANGE == "1")
+                    isTrade = true;
+                    ShowPayInfo();
+                    PubGlobal.Cur_tSalSale.XsTime = DateTime.Now.ToString("HH:mm:ss");
+                    #region 保存流水
+                    string msg;
+
+                    //foreach (Model.CSalSalePay salePay in PubGlobal.Cur_tSalSalePayList)
+                    //{
+                    //    salePay.SaleNo = PubGlobal.Cur_tSalSale.SaleNo;
+                    //    salePay.Operator = PubGlobal.Cur_tSalSale.Operator;
+                    //    salePay.XsDate = PubGlobal.Cur_tSalSale.XsDate;
+                    //    salePay.Stime = PubGlobal.Cur_tSalSale.XsTime;
+                    //}
+
+                    ShowWait();
+                    if (!Comm.Comm.Trade(PubGlobal.Cur_tSalSale, PubGlobal.Cur_tSalSalePayList, PubGlobal.Cur_tSalSalePluList, out msg))
                     {
-                        charge = decimal.Parse(tSalSalePay.ZFTOTAL) - PubGlobal.Cur_Sale_YETotal;//找零金额
-                        tSalSalePay.SSTOTAL = (decimal.Parse(tSalSalePay.ZFTOTAL) - charge).ToString();
-                        //允许找零
-                        strBuilder.AppendFormat("  【找零】{0}元\r\n", charge.ToString("F2"));
-                        tbPayList.Text += strBuilder.ToString();
+                        //支付失败
+                        MessageBox.Show(msg);
+                        tbPayList.Text += "结算失败！";
                     }
                     else
                     {
-                        tSalSalePay.SSTOTAL = decimal.Parse(tSalSalePay.ZFTOTAL).ToString();
+                        tbPayList.Text += "结算成功！";
                     }
+                    HideWait();
+                    #endregion
+
+                    Application.DoEvents();
+
+                    isTrade = false;
+                    //PubGlobal.CloseCur_Trade();
                 }
-                else
-                {
-                    tSalSalePay.SSTOTAL = decimal.Parse(tSalSalePay.ZFTOTAL).ToString();
-                }
-                PubGlobal.Cur_Sale_PayTotal += decimal.Parse(tSalSalePay.SSTOTAL);
                 ShowPayInfo();
+
+            }
+            else
+            {
+
+                if (PayTypeBox.ShowDialog() == DialogResult.OK)
+                {
+                    //选定付款方式
+
+                    switch (PayTypeBox.PayType.PayType)
+                    {
+                        case "03"://银行卡
+                            BankCardPay();
+                            break;
+
+                        case "01"://现金
+                            CashPay();
+                            break;
+                    }
+                    if (PubGlobal.Cur_TradeSucess)
+                    {
+                        isTrade = true;
+                        ShowPayInfo();
+                        PubGlobal.Cur_tSalSale.XsTime = DateTime.Now.ToString("HH:mm:ss");
+                        #region 保存流水
+                        string msg;
+
+                        foreach (Model.CSalSalePay salePay in PubGlobal.Cur_tSalSalePayList)
+                        {
+                            salePay.SaleNo = PubGlobal.Cur_tSalSale.SaleNo;
+                            salePay.Operator = PubGlobal.Cur_tSalSale.Operator;
+                            salePay.XsDate = PubGlobal.Cur_tSalSale.XsDate;
+                            salePay.Stime = PubGlobal.Cur_tSalSale.XsTime;
+                        }
+
+                        ShowWait();
+                        if (!Comm.Comm.Trade(PubGlobal.Cur_tSalSale, PubGlobal.Cur_tSalSalePayList, PubGlobal.Cur_tSalSalePluList, out msg))
+                        {
+                            //支付失败
+                            MessageBox.Show(msg);
+                            tbPayList.Text += "结算失败！";
+                        }
+                        else
+                        {
+                            tbPayList.Text += "结算成功！";
+                        }
+                        HideWait();
+                        #endregion
+
+                        Application.DoEvents();
+
+                        isTrade = false;
+                        //PubGlobal.CloseCur_Trade();
+                    }
+                    ShowPayInfo();
+
+                }
             }
         }
 
@@ -140,14 +215,15 @@ namespace MobilePayment.SalePay
             {
                 if (PubGlobal.Cur_tSalSalePayList != null)
                 {
-                    foreach (TSalSalePay pay in PubGlobal.Cur_tSalSalePayList)
+                    foreach (Model.CSalSalePay pay in PubGlobal.Cur_tSalSalePayList)
                     {
-                        foreach (TSalPayType type in PubGlobal.sPayTypes)
+                        foreach (Model.CSalPayType type in PubGlobal.sPayTypes)
                         {
-                            if (type.PAYTYPE == "5" || type.PAYTYPE == "2")
+                            if (type.PayType == "5" || type.PayType == "2")
                             {
+                                //银行卡和储值卡
                                 //不允许退货
-                                if (pay.ZFCODE == type.PAYCODE)
+                                if (pay.ZfCode == type.PayCode)
                                 {
                                     MessageBox.Show("有银行卡或储值卡支付！不允许取消！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                                     return;
@@ -168,17 +244,8 @@ namespace MobilePayment.SalePay
         private void FrmPay_Load(object sender, EventArgs e)
         {
             PayTypeBox.Init();
-            serialno = 1;
-            PubGlobal.Cur_tSalSalePayList = new List<TSalSalePay>();
+            PubGlobal.Cur_tSalSalePayList = new List<Model.CSalSalePay>();
             PubGlobal.Cur_Sale_PayTotal = 0;
-            cEmvpbocBank.ExeFilePath = PubGlobal.ExeFilePath_Bank;
-            cEmvpbocBank.InDataFilePath = PubGlobal.InFilePath_Bank;
-            cEmvpbocBank.OutDataFilePath = PubGlobal.OutFilePath_Bank;
-
-            cEmvpbocVip.ExeFilePath = PubGlobal.ExeFilePath_Vip;
-            cEmvpbocVip.InDataFilePath = PubGlobal.InFilePath_Vip;
-            cEmvpbocVip.OutDataFilePath = PubGlobal.OutFilePath_Vip;
-
             tbPayList.Text = string.Empty;
             ShowPayInfo();
         }
@@ -188,10 +255,29 @@ namespace MobilePayment.SalePay
         /// </summary>
         private void ShowPayInfo()
         {
-            tbYfMoney.Text = PubGlobal.Cur_Sale_YFTotal.ToString("F2");
-            tbNowMoney.Text = PubGlobal.Cur_Sale_PayTotal.ToString("F2");
-            button_1.Enabled = PubGlobal.Cur_Sale_YETotal >0;
-            button_3.Enabled = PubGlobal.Cur_Sale_YETotal <= 0;
+            if (PubGlobal.SaleBack)
+            {
+                if (PubGlobal.Cur_tSalSale != null)
+                {
+                    tbYfMoney.Text = PubGlobal.Cur_Sale_YFTotal.ToString("F2");
+                    tbNowMoney.Text = PubGlobal.Cur_Sale_PayTotal.ToString("F2");
+                    TxbYhPrice.Text = PubGlobal.Cur_Sale_YhTotal.ToString("F2");
+                    button_1.Enabled = PubGlobal.Cur_Sale_YETotal < 0;
+                    button_3.Enabled = false;
+                }
+            }
+            else
+            {
+                if (PubGlobal.Cur_tSalSale != null)
+                {
+                    tbYfMoney.Text = PubGlobal.Cur_Sale_YFTotal.ToString("F2");
+                    tbNowMoney.Text = PubGlobal.Cur_Sale_PayTotal.ToString("F2");
+                    TxbYhPrice.Text = PubGlobal.Cur_Sale_YhTotal.ToString("F2");
+                    button_1.Enabled = PubGlobal.Cur_Sale_YETotal > 0;
+                    button_3.Enabled = PubGlobal.Cur_Sale_YETotal > 0 ;
+                }
+            }
+            button_4.Enabled = !isTrade;
         }
         /// <summary>
         /// 完成
@@ -200,64 +286,11 @@ namespace MobilePayment.SalePay
         /// <param name="e"></param>
         private void button_3_Click(object sender, EventArgs e)
         {
-            ShowWait("正保存交易流水...请稍候...");
-            #region 保存至服务器
-            string msg;
-            string ReturnMsg=string.Empty;
-            if (!Comm.Comm.RecvPay(PubGlobal.OrgCode, PubGlobal.User.UserCode, PubGlobal.User.Password,PubGlobal.Cur_tSalSalePayList,"0", ref ReturnMsg, out msg))
+            if (EnterBox.ShowDialog() == DialogResult.OK)
             {
-                HideWait();
-                MessageBox.Show(msg,"错误",MessageBoxButtons.OKCancel,MessageBoxIcon.Exclamation,MessageBoxDefaultButton.Button1);
-                button_3.Enabled = false;
-                button_4.Enabled = false;
-                this.DialogResult = DialogResult.OK;
+                PubGlobal.Cur_Sale_YhTotal = EnterBox.Value;
+                ShowPayInfo();
             }
-            else
-            {
-                //打印小票
-                cPrinter1.Init();
-                StringBuilder stringBuilder = new StringBuilder();
-                int l = PubGlobal.BillHead.Length / 2 + 10 - 4;
-                stringBuilder.AppendFormat("{0}{1}\n", new string[] { PubGlobal.BillHead.PadLeft(l), "移动支付小票" });
-                stringBuilder.AppendFormat("  流水号：{0}\n", PubGlobal.Cur_tSalSale[0].SALENO);
-                if (!string.IsNullOrEmpty(PubGlobal.Cur_tSalSale[0].VIPCARDNO))
-                {
-                    stringBuilder.AppendFormat("会员卡号：{0}\n", PubGlobal.Cur_tSalSale[0].VIPCARDNO);
-                }
-                stringBuilder.AppendFormat("交易时间：{0}\n", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                stringBuilder.AppendFormat("============================\n");
-                stringBuilder.AppendFormat("应收金额：{0}\n", PubGlobal.Cur_Sale_YFTotal.ToString("F2"));
-                stringBuilder.AppendFormat("实收金额：{0}\n", PubGlobal.Cur_Sale_PayTotal.ToString("F2"));
-
-                foreach (Model.TransModel.TSalSalePay pay in PubGlobal.Cur_tSalSalePayList)
-                {
-                    stringBuilder.AppendFormat("{0}：{1}\n", PubGlobal.sPayTypes.Find(a=>a.PAYCODE==pay.ZFCODE).PAYNAME.PadLeft(8), pay.SSTOTAL);//支付方式
-                }
-
-                if (!string.IsNullOrEmpty(PubGlobal.BillFoot1.Trim()))
-                {
-                    stringBuilder.AppendFormat("{0}\n", PubGlobal.BillFoot1);
-                }
-                if (!string.IsNullOrEmpty(PubGlobal.BillFoot2.Trim()))
-                {
-                    stringBuilder.AppendFormat("{0}\n", PubGlobal.BillFoot2);
-                }
-                if (!string.IsNullOrEmpty(PubGlobal.BillFoot3.Trim()))
-                {
-                    stringBuilder.AppendFormat("{0}\n", PubGlobal.BillFoot3);
-                }
-                cPrinter1.Print(stringBuilder.ToString());
-                cPrinter1.Feed(6);
-
-                HideWait();
-                button_3.Enabled = false;
-                button_4.Enabled = false;
-                tbPayList.Text = ReturnMsg=="NULL"?string.Empty:ReturnMsg;
-                Thread.Sleep(2000);
-                this.DialogResult = DialogResult.OK;
-
-            }
-            #endregion
         }
 
         /// <summary>
@@ -267,7 +300,7 @@ namespace MobilePayment.SalePay
         /// <param name="e"></param>
         private void FrmSalePay_Closing(object sender, CancelEventArgs e)
         {
-            PubGlobal.CloseCur_Trade();
+            //PubGlobal.CloseCur_Trade();
             button_4.Enabled = true;
         }
 
@@ -275,5 +308,19 @@ namespace MobilePayment.SalePay
         {
             tbPayList.ScrollToCaret();
         }
+
+        private void FrmSalePay_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    if (!isTrade)
+                    {
+                        button_4_Click(null, null);
+                    }
+                    break;
+            }
+        }
+
     }
 }

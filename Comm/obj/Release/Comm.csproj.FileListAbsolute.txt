@@ -1,0 +1,8 @@
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Comm\bin\Release\CodeBetter.Json.CF.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Comm\bin\Release\Comm.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Comm\bin\Release\Comm.pdb
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Comm\bin\Release\Model.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Comm\bin\Release\Model.pdb
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Comm\obj\Release\ResolveAssemblyReference.cache
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Comm\obj\Release\Comm.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Comm\obj\Release\Comm.pdb

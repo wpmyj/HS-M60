@@ -1,0 +1,12 @@
+D:\His_M60设备程序\branches\成都连锁展会Demo\Devices\bin\Debug\VPOS362_APIDLL.dll
+D:\His_M60设备程序\branches\成都连锁展会Demo\Devices\bin\Debug\Devices.dll
+D:\His_M60设备程序\branches\成都连锁展会Demo\Devices\bin\Debug\Devices.pdb
+D:\His_M60设备程序\branches\成都连锁展会Demo\Devices\obj\Debug\ResolveAssemblyReference.cache
+D:\His_M60设备程序\branches\成都连锁展会Demo\Devices\obj\Debug\Devices.dll
+D:\His_M60设备程序\branches\成都连锁展会Demo\Devices\obj\Debug\Devices.pdb
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Devices\bin\Debug\VPOS362_APIDLL.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Devices\bin\Debug\Devices.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Devices\bin\Debug\Devices.pdb
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Devices\obj\Debug\ResolveAssemblyReference.cache
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Devices\obj\Debug\Devices.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\Devices\obj\Debug\Devices.pdb

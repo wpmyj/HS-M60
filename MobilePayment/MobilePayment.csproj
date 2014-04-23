@@ -24,10 +24,14 @@
     <OldToolsVersion>2.0</OldToolsVersion>
     <NativePlatformName>Windows CE</NativePlatformName>
     <StartupObject>MobilePayment.Program</StartupObject>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,13 +59,9 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Devices, Version=1.0.5108.30213, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Devices, Version=1.0.5115.28327, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\M60Device\Device\bin\Release\Devices.dll</HintPath>
-    </Reference>
-    <Reference Include="IME, Version=1.0.5115.24128, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\WinCEIME\IME\bin\Release\IME.dll</HintPath>
+      <HintPath>..\..\..\..\C.Component\M.M60Devices\trunk\Device\bin\Release\Devices.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -73,71 +73,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JhBill\FrmJhBillMx.cs">
+    <Compile Include="FrmBankPay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JhBill\FrmJhBillMx.Designer.cs">
-      <DependentUpon>FrmJhBillMx.cs</DependentUpon>
+    <Compile Include="FrmBankPay.Designer.cs">
+      <DependentUpon>FrmBankPay.cs</DependentUpon>
     </Compile>
-    <Compile Include="JhBill\FrmJhBillSend.cs">
+    <Compile Include="FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JhBill\FrmJhBillSend.Designer.cs">
-      <DependentUpon>FrmJhBillSend.cs</DependentUpon>
+    <Compile Include="FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="JhBill\FrmJhPluQuery.cs">
+    <Compile Include="FrmEnterBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JhBill\FrmJhPluQuery.Designer.cs">
-      <DependentUpon>FrmJhPluQuery.cs</DependentUpon>
+    <Compile Include="FrmEnterBox.Designer.cs">
+      <DependentUpon>FrmEnterBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="JhBill\FrmJhBillInit.cs">
+    <Compile Include="FrmEnterVip.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JhBill\FrmJhBillInit.Designer.cs">
-      <DependentUpon>FrmJhBillInit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CgBill\FrmCgPlu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CgBill\FrmCgPlu.Designer.cs">
-      <DependentUpon>FrmCgPlu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CgBill\FrmCgBillMx.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CgBill\FrmCgBillMx.Designer.cs">
-      <DependentUpon>FrmCgBillMx.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CgBill\FrmCgBillSend.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CgBill\FrmCgBillSend.Designer.cs">
-      <DependentUpon>FrmCgBillSend.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CgBill\FrmCgPluView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CgBill\FrmCgPluView.Designer.cs">
-      <DependentUpon>FrmCgPluView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CgBill\FrmKcQuery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CgBill\FrmKcQuery.Designer.cs">
-      <DependentUpon>FrmKcQuery.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CarPay\FrmCarNoBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CarPay\FrmCarNoBox.Designer.cs">
-      <DependentUpon>FrmCarNoBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CarPay\FrmCarPark.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CarPay\FrmCarPark.Designer.cs">
-      <DependentUpon>FrmCarPark.cs</DependentUpon>
+    <Compile Include="FrmEnterVip.Designer.cs">
+      <DependentUpon>FrmEnterVip.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -145,47 +103,11 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="CarPay\FrmCarPay.cs">
+    <Compile Include="FrmPwdEnter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CarPay\FrmCarPay.Designer.cs">
-      <DependentUpon>FrmCarPay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="JhBill\FrmJhPluView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="JhBill\FrmJhPluView.Designer.cs">
-      <DependentUpon>FrmJhPluView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PdBill\FrmPdBillInit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PdBill\FrmPdBillInit.Designer.cs">
-      <DependentUpon>FrmPdBillInit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PdBill\FrmPdBillMx.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PdBill\FrmPdBillMx.Designer.cs">
-      <DependentUpon>FrmPdBillMx.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PdBill\FrmPdBillSend.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PdBill\FrmPdBillSend.Designer.cs">
-      <DependentUpon>FrmPdBillSend.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PdBill\FrmPdPluQuery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PdBill\FrmPdPluQuery.Designer.cs">
-      <DependentUpon>FrmPdPluQuery.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PdBill\FrmPdPluView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PdBill\FrmPdPluView.Designer.cs">
-      <DependentUpon>FrmPdPluView.cs</DependentUpon>
+    <Compile Include="FrmPwdEnter.Designer.cs">
+      <DependentUpon>FrmPwdEnter.cs</DependentUpon>
     </Compile>
     <Compile Include="SalePay\FrmSalePay.cs">
       <SubType>Form</SubType>
@@ -193,12 +115,20 @@
     <Compile Include="SalePay\FrmSalePay.Designer.cs">
       <DependentUpon>FrmSalePay.cs</DependentUpon>
     </Compile>
-    <Compile Include="SalePay\FrmTransList.cs">
+    <Compile Include="FrmPayType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SalePay\FrmTransList.Designer.cs">
-      <DependentUpon>FrmTransList.cs</DependentUpon>
+    <Compile Include="FrmPayType.Designer.cs">
+      <DependentUpon>FrmPayType.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalePay\FrmSalePlu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalePay\FrmSalePlu.Designer.cs">
+      <DependentUpon>FrmSalePlu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IpHelper.cs" />
+    <Compile Include="PubGlobal.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,97 +137,58 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="JhBill\FrmJhBillInit.resx">
-      <DependentUpon>FrmJhBillInit.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBankPay.resx">
+      <DependentUpon>FrmBankPay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CgBill\FrmCgPlu.resx">
-      <DependentUpon>FrmCgPlu.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CgBill\FrmCgBillMx.resx">
-      <DependentUpon>FrmCgBillMx.cs</DependentUpon>
+    <EmbeddedResource Include="FrmEnterBox.resx">
+      <DependentUpon>FrmEnterBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CgBill\FrmCgBillSend.resx">
-      <DependentUpon>FrmCgBillSend.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CgBill\FrmCgPluView.resx">
-      <DependentUpon>FrmCgPluView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CgBill\FrmKcQuery.resx">
-      <DependentUpon>FrmKcQuery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CarPay\FrmCarNoBox.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FrmCarNoBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CarPay\FrmCarPark.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FrmCarPark.cs</DependentUpon>
+    <EmbeddedResource Include="FrmEnterVip.resx">
+      <DependentUpon>FrmEnterVip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CarPay\FrmCarPay.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FrmCarPay.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JhBill\FrmJhBillMx.resx">
-      <DependentUpon>FrmJhBillMx.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JhBill\FrmJhBillSend.resx">
-      <DependentUpon>FrmJhBillSend.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JhBill\FrmJhPluQuery.resx">
-      <DependentUpon>FrmJhPluQuery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JhBill\FrmJhPluView.resx">
-      <DependentUpon>FrmJhPluView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PdBill\FrmPdBillInit.resx">
-      <DependentUpon>FrmPdBillInit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PdBill\FrmPdBillMx.resx">
-      <DependentUpon>FrmPdBillMx.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PdBill\FrmPdBillSend.resx">
-      <DependentUpon>FrmPdBillSend.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PdBill\FrmPdPluQuery.resx">
-      <DependentUpon>FrmPdPluQuery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PdBill\FrmPdPluView.resx">
-      <DependentUpon>FrmPdPluView.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPwdEnter.resx">
+      <DependentUpon>FrmPwdEnter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalePay\FrmSalePay.resx">
       <DependentUpon>FrmSalePay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SalePay\FrmTransList.resx">
-      <DependentUpon>FrmTransList.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPayType.resx">
+      <DependentUpon>FrmPayType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalePay\FrmSalePlu.resx">
+      <DependentUpon>FrmSalePlu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SalePay\FrmTransSale.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FrmTransSale.cs</DependentUpon>
+    <EmbeddedResource Include="FrmWait.resx">
+      <DependentUpon>FrmWait.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="SalePay\FrmTransSale.cs">
+    <Compile Include="FrmWait.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SalePay\FrmTransSale.Designer.cs">
-      <DependentUpon>FrmTransSale.cs</DependentUpon>
+    <Compile Include="FrmWait.designer.cs">
+      <DependentUpon>FrmWait.cs</DependentUpon>
     </Compile>
+    <Compile Include="Win32.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config.inf">
@@ -306,37 +197,21 @@
     <Content Include="VPOS362_APIDLL.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="DesignTimeAttributes1.xmta" />
+    <None Include="Properties\DataSources\Model.TSalSale.datasource" />
+    <None Include="Properties\DataSources\Model.TSalSalePay.datasource" />
+    <None Include="Properties\DataSources\Model.TSalSalePlu.datasource" />
+    <None Include="Properties\DataSources\Model.VCashRpt.datasource" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Base\Base.csproj">
-      <Project>{62DAF646-3D46-4E89-852F-3C0B646C9DCF}</Project>
-      <Name>Base</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Comm\Comm.csproj">
       <Project>{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}</Project>
       <Name>Comm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{C03D26EF-5C77-4CF9-B8F5-E7372459E395}</Project>
-      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}</Project>
       <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Pub\Pub.csproj">
-      <Project>{D635F10E-EA30-4CA6-8757-4B61DF10F549}</Project>
-      <Name>Pub</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="LocalDB.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Properties\DataSources\Model.DBModel.CgBill.datasource" />
-    <None Include="Properties\DataSources\Model.DBModel.DBJhBill.datasource" />
-    <None Include="Properties\DataSources\Model.DBModel.DBPdData1.datasource" />
-    <None Include="Properties\DataSources\Model.TransModel.TPacket.datasource" />
   </ItemGroup>
   <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
   <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />

@@ -1,0 +1,7 @@
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\WSForSM90\bin\WSForSM90.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\WSForSM90\bin\WSForSM90.pdb
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\WSForSM90\obj\Debug\ResolveAssemblyReference.cache
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\WSForSM90\obj\Debug\WSForSM90.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\WSForSM90\obj\Debug\WSForSM90.pdb
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\WSForSM90\bin\Newtonsoft.Json.dll
+E:\Documents\项目开发\1.CSharp\M.M60\branches\M60ForSM90\WSForSM90\bin\SqlUtilities.dll

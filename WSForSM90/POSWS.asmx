@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="POSWS.asmx.cs" Class="WSForSM90.POSWS" %>

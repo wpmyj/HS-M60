@@ -18,10 +18,14 @@
     <NativePlatformName>Windows CE</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,10 +54,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="SqliteUtilities, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DAL\SqliteUtilities.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -62,29 +62,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBModel\DBCgBill.cs" />
-    <Compile Include="DBModel\DBJhBill.cs" />
-    <Compile Include="DBModel\DBJhBillInfo.cs" />
-    <Compile Include="DBModel\DBNextNo.cs" />
-    <Compile Include="DBModel\DBPdData.cs" />
-    <Compile Include="DBModel\DBProvince.cs" />
-    <Compile Include="DBModel\DBSalSalePay.cs" />
-    <Compile Include="DBModel\DBPdDataInfo.cs" />
-    <Compile Include="TransModel\TMessage.cs" />
+    <Compile Include="CMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransModel\TCarParkCharge.cs" />
-    <Compile Include="TransModel\TCarParkPay.cs" />
-    <Compile Include="TransModel\TCgBill.cs" />
-    <Compile Include="TransModel\TJhBill.cs" />
-    <Compile Include="TransModel\TPacket.cs" />
-    <Compile Include="TransModel\TRFQueryCgBill.cs" />
-    <Compile Include="TransModel\TRFQueryPlu.cs" />
-    <Compile Include="TransModel\TSalPayType.cs" />
-    <Compile Include="TransModel\TSalSale.cs" />
-    <Compile Include="TransModel\TSalSalePay.cs" />
-    <Compile Include="TransModel\TSalSalePlu.cs" />
-    <Compile Include="TransModel\TRFQueryKc.cs" />
-    <Compile Include="TransModel\TUserInfo.cs" />
+    <Compile Include="CPlu.cs" />
+    <Compile Include="CSalPayType.cs" />
+    <Compile Include="CSalSale.cs" />
+    <Compile Include="CSalSalePay.cs" />
+    <Compile Include="CSalSalePlu.cs" />
+    <Compile Include="CUser.cs" />
+    <Compile Include="CVip.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>

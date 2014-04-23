@@ -5,9 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Pub;
-using Base;
-using Model.TransModel;
 
 namespace MobilePayment.SalePay
 {
@@ -34,13 +31,13 @@ namespace MobilePayment.SalePay
             sBuilder.AppendFormat("{0}{1}\r\n",new string[]{"商品编码".PadRight(10),"商品名称".PadRight(20)});
             sBuilder.AppendFormat("{0}{1}{2}\r\n", new string[] { "单价".PadLeft(10), "数量".PadLeft(10), "金额".PadLeft(10) });
             sBuilder.Append("------------------------------------------\r\n");
-            foreach (TSalSalePlu plu in PubGlobal.Cur_tSalSalePluList)
+            foreach (Model.TSalSalePlu plu in PubGlobal.Cur_tSalSalePluList)
             {
                 sBuilder.AppendFormat("{0}{1}\r\n", new string[] { plu.PLUCODE.PadRight(10), plu.PLUNAME.PadRight(10) });
                 sBuilder.AppendFormat("{0}{1}{2}\r\n", new string[] { plu.PRICE.PadLeft(10), plu.XSCOUNT.PadLeft(10), (decimal.Parse(plu.PRICE) * decimal.Parse(plu.XSCOUNT)).ToString().PadLeft(10) });
             }
             sBuilder.Append("------------------------------------------\r\n");
-            sBuilder.AppendFormat("应收金额：{0}", PubGlobal.Cur_tSalSale[0].YSTOTAL);
+            sBuilder.AppendFormat("应收金额：{0}", PubGlobal.Cur_tSalSale.YSTOTAL);
             tbTransList.Text = sBuilder.ToString();
             //stBar.Text = "操作员：" + PubGlobal.sUserCode + "        日期：" + DateTime.Now.Date.ToShortDateString();
             ////调用webserver接口，显示订单明细

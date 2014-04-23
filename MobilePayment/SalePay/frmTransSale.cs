@@ -6,8 +6,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
-using Pub;
-using Base;
 
 namespace MobilePayment.SalePay
 {
@@ -16,8 +14,6 @@ namespace MobilePayment.SalePay
         public FrmTransSale()
         {
             InitializeComponent();
-            dlgInputSaleNo = new DlgInputSaleNo(InputSerialNo);
-
         }
 
         /// <summary>
@@ -50,12 +46,12 @@ namespace MobilePayment.SalePay
             {
                 return;
             }
-            ShowWait("正查询交易记录...请稍候...");
+            ShowWait();
             #region 服务器查询
             string msg;
-            if (!Comm.Comm.ScanSale(PubGlobal.OrgCode, PubGlobal.User.UserCode, PubGlobal.User.Password, tbSaleNo.Text.Trim(), ref PubGlobal.Cur_tSalSale, out msg))
+            if (!Comm.Comm.ScanSale(PubGlobal.OrgCode, PubGlobal.User.UserCode, PubGlobal.User.Password, tbSaleNo.Text.Trim(), out PubGlobal.Cur_tSalSale, out msg))
             {
-                tbSaleInfo.Text = msg;
+                MessageBox.Show(msg);
             }
             #endregion
             HideWait();
@@ -87,12 +83,12 @@ namespace MobilePayment.SalePay
         {
             if (PubGlobal.Cur_tSalSale != null)
             {
-                tbSaleNo.Text = PubGlobal.Cur_tSalSale[0].SALENO;
+                tbSaleNo.Text = PubGlobal.Cur_tSalSale.SALENO;
                 StringBuilder Sbuilder = new StringBuilder();
-                Sbuilder.AppendFormat("会员卡号：{0}\r\n", PubGlobal.Cur_tSalSale[0].VIPCARDNO);
+                Sbuilder.AppendFormat("会员卡号：{0}\r\n", PubGlobal.Cur_tSalSale.VIPCARDNO);
                 Sbuilder.Append("------------------------------------------\r\n");
-                Sbuilder.AppendFormat("应收金额：{0}\r\n", decimal.Parse(PubGlobal.Cur_tSalSale[0].YSTOTAL).ToString("F2"));
-                Sbuilder.AppendFormat("优惠金额：{0}\r\n", decimal.Parse(PubGlobal.Cur_tSalSale[0].YHTOTAL).ToString("F2"));
+                Sbuilder.AppendFormat("应收金额：{0}\r\n", decimal.Parse(PubGlobal.Cur_tSalSale.YSTOTAL).ToString("F2"));
+                Sbuilder.AppendFormat("优惠金额：{0}\r\n", decimal.Parse(PubGlobal.Cur_tSalSale.YHTOTAL).ToString("F2"));
                 Sbuilder.AppendFormat("应付金额：{0}\r\n", PubGlobal.Cur_Sale_YFTotal.ToString("F2"));
                 tbSaleInfo.Text = Sbuilder.ToString();
             }
@@ -115,12 +111,12 @@ namespace MobilePayment.SalePay
             {
                 return;
             }
-            ShowWait("正查询交易流水...请稍候...");
+            ShowWait();
             #region 获取明细
             string msg;
-            if(!Comm.Comm.ViewPlu(PubGlobal.OrgCode,PubGlobal.User.UserCode,PubGlobal.User.Password,PubGlobal.Cur_tSalSale[0].SALENO,ref PubGlobal.Cur_tSalSalePluList, out msg))
+            if(!Comm.Comm.ViewPlu(PubGlobal.OrgCode,PubGlobal.User.UserCode,PubGlobal.User.Password,PubGlobal.Cur_tSalSale.SALENO,out PubGlobal.Cur_tSalSalePluList, out msg))
             {
-                tbSaleInfo.Text = msg;
+                MessageBox.Show(msg);
             }
             #endregion
             HideWait();
@@ -142,40 +138,5 @@ namespace MobilePayment.SalePay
         {
             tbSaleNo.SelectAll();
         }
-
-        private void cSideBtn1_OnPressRightButton(object sender, EventArgs e)
-        {
-            cScanner1.Read();
-        }
-
-        private void cScanner1_OnRecvData(object sender, Devices.ScanRecvDataEventArgs e)
-        {
-            cBuzzer1.Beep(500);
-            this.Invoke(dlgInputSaleNo, e.DataValue.Replace("\n",string.Empty).Replace("\r",string.Empty));
-        }
-
-        private delegate void DlgInputSaleNo(string saleNo);
-        DlgInputSaleNo dlgInputSaleNo;
-        private void InputSerialNo(string saleNo)
-        {
-            tbSaleNo.Text = saleNo;
-            button_1_Click(null, null);
-        }
-
-        private void FrmTransSale_Activated(object sender, EventArgs e)
-        {
-            cSideBtn1.Init();
-            cSideBtn1.Open();
-            cScanner1.Open();
-            cBuzzer1.Close();
-        }
-
-        private void FrmTransSale_Closing(object sender, CancelEventArgs e)
-        {
-            cSideBtn1.Close();
-            cScanner1.Close();
-            cBuzzer1.Close();
-        }
-        
     }
 }
