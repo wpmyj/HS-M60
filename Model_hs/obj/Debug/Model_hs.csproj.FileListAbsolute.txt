@@ -1,0 +1,5 @@
+D:\His_M60设备程序\branches\成都连锁展会Demo\Model_hs\bin\Debug\Model_hs.dll
+D:\His_M60设备程序\branches\成都连锁展会Demo\Model_hs\bin\Debug\Model_hs.pdb
+D:\His_M60设备程序\branches\成都连锁展会Demo\Model_hs\obj\Debug\ResolveAssemblyReference.cache
+D:\His_M60设备程序\branches\成都连锁展会Demo\Model_hs\obj\Debug\Model_hs.dll
+D:\His_M60设备程序\branches\成都连锁展会Demo\Model_hs\obj\Debug\Model_hs.pdb

@@ -2,88 +2,132 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
-using SqliteUtilities;
 using System.Data.SQLite;
+using SqliteUtilities;
 using System.Data;
+
 namespace DAL
 {
-    public class BaseDAL
+    public abstract class BaseDAL<T>
     {
         /// <summary>
-        /// 数据库访问工具
+        /// 数据库连接
         /// </summary>
-        protected static ISqlTool DBTool = ToolBuilder.CreateSqlTool();
+        private  SQLiteConnection Connection
+        {
+            get;
+            set;
+        }
+
+        #region 事务操作
 
         /// <summary>
-        /// 对象工具
+        /// 开启事务
         /// </summary>
-        public static IObjectTool ObjTool = ToolBuilder.CreateObjectTool();
-        /// <summary>
-        /// 打开数据库
-        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="msg"></param>
         /// <returns></returns>
-        public static bool Open(string ConnectionStr , out string msg)
+        public bool BeginTran(out SQLiteTransaction tran,out string msg)
         {
-            return DBTool.Open(ConnectionStr, out msg);
+            return SqlTool.BeginTransaction(Connection, out tran, out msg);
+        }
+
+        public bool Commit(SQLiteTransaction tran,out string msg)
+        {
+            return SqlTool.CommitTransaction(tran,out msg);
         }
 
         /// <summary>
-        /// 关闭数据库
+        /// 回滚事务
         /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="msg"></param>
         /// <returns></returns>
-        public static void Close()
+        public bool RollBack(SQLiteTransaction tran, out string msg)
         {
-            DBTool.Close();
+            return SqlTool.RollbackTransaction(tran, out msg);
         }
+        #endregion
+
+        #region 数据库操作工具
         /// <summary>
-        /// Insert
+        /// 数据库操作工具
         /// </summary>
-        /// <typeparam name="T">泛型</typeparam>
-        /// <param name="obj">对象</param>
-        /// <param name="i">影响行数</param>
-        /// <param name="msg">返回的消息</param>
-        /// <returns>是否成功</returns>
-        public static bool Insert<T>(T obj, out int i,out string msg)
-        {
-            return DBTool.Insert(obj, out i, out msg);
-        }
+        public static ISqlTool SqlTool = ToolBuilder.CreateSqlTool();
 
         /// <summary>
-        /// Update
+        /// 对象操作工具
         /// </summary>
-        /// <typeparam name="T">泛型</typeparam>
-        /// <param name="obj">对象</param>
-        /// <param name="i">影响行数</param>
-        /// <param name="msg">返回的消息</param>
-        /// <returns>是否成功</returns>
-        public static bool Update<T>(T obj, out int i, out string msg)
+        public static IObjectTool ObjectTool = ToolBuilder.CreateObjectTool();
+
+        #endregion
+
+        #region 构造函数
+        public BaseDAL(SQLiteConnection _Connection)
         {
-            return DBTool.Update(obj, out i, out msg);
+            this.Connection = _Connection;
         }
 
-        /// <summary>
-        /// Delete
-        /// </summary>
-        /// <typeparam name="T">泛型</typeparam>
-        /// <param name="obj">对象</param>
-        /// <param name="i">影响的行数</param>
-        /// <param name="msg">返回的消息</param>
-        /// <returns>是否成功</returns>
-        public static bool Delete<T>(T obj, out int i, out string msg)
-        {
-            return DBTool.Delete(obj, out i, out msg);
-        }
+        #endregion
+
+        #region 数据库操作
 
         /// <summary>
-        /// Select
+        /// 读取数据库对象
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="?"></param>
+        /// <param name="obj"></param>
+        /// <param name="msg"></param>
         /// <returns></returns>
-        public static bool Select<T>(string Condition,T model,string OrderBy,out DataTable dt,out string msg)
+        public virtual bool Load(ref T obj, out string msg)
         {
-            return DBTool.Select(Condition, model, OrderBy, out dt, out msg);
+            return SqlTool.Load(ref obj, Connection, out msg);
         }
 
+        /// <summary>
+        /// 保存
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public  virtual bool Save(ref T obj,out int i, out string msg)
+        {
+            return SqlTool.Save(ref obj, Connection, out i, out msg);
+        }
+
+        /// <summary>
+        /// 保存并启用事务
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="tran"></param>
+        /// <param name="i"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public virtual bool Save(T obj,SQLiteTransaction tran,out int i,out string msg)
+        {
+            return SqlTool.Save(ref obj, Connection, tran, out i, out msg);
+        }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public  virtual bool Delete(T obj, out int i,out string msg)
+        {
+            return SqlTool.Delete(obj,Connection,out i,out msg);
+        }
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="Condition"></param>
+        /// <param name="dataTable"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public virtual bool Select(string Condition, string OrderBy, out DataTable result, out string msg)
+        {
+            return SqlTool.Select<T>(Condition, OrderBy, Connection, out result, out msg);
+        }
+        #endregion
     }
 }

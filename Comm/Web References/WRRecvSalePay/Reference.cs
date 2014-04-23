@@ -33,20 +33,18 @@ namespace Comm.WRRecvSalePay {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RecvSalePayFunc", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string RecvSalePayFunc(string sjson, string SendStatus, string UserCode, string PassWord) {
+        public string RecvSalePayFunc(string sjson, string UserCode, string PassWord) {
             object[] results = this.Invoke("RecvSalePayFunc", new object[] {
                         sjson,
-                        SendStatus,
                         UserCode,
                         PassWord});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginRecvSalePayFunc(string sjson, string SendStatus, string UserCode, string PassWord, System.AsyncCallback callback, object asyncState) {
+        public System.IAsyncResult BeginRecvSalePayFunc(string sjson, string UserCode, string PassWord, System.AsyncCallback callback, object asyncState) {
             return this.BeginInvoke("RecvSalePayFunc", new object[] {
                         sjson,
-                        SendStatus,
                         UserCode,
                         PassWord}, callback, asyncState);
         }

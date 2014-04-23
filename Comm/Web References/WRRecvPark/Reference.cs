@@ -33,24 +33,22 @@ namespace Comm.WRRecvPark {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RecvParkFunc", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string RecvParkFunc(string License, string MobileIp, string UserCode, string UserName, string PassWord) {
+        public string RecvParkFunc(string License, string MobileIp, string UserCode, string UserName) {
             object[] results = this.Invoke("RecvParkFunc", new object[] {
                         License,
                         MobileIp,
                         UserCode,
-                        UserName,
-                        PassWord});
+                        UserName});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginRecvParkFunc(string License, string MobileIp, string UserCode, string UserName, string PassWord, System.AsyncCallback callback, object asyncState) {
+        public System.IAsyncResult BeginRecvParkFunc(string License, string MobileIp, string UserCode, string UserName, System.AsyncCallback callback, object asyncState) {
             return this.BeginInvoke("RecvParkFunc", new object[] {
                         License,
                         MobileIp,
                         UserCode,
-                        UserName,
-                        PassWord}, callback, asyncState);
+                        UserName}, callback, asyncState);
         }
         
         /// <remarks/>

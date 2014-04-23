@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tbYfMoney = new System.Windows.Forms.TextBox();
             this.tbNowMoney = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPayList = new System.Windows.Forms.TextBox();
-            this.cEmvpbocVip = new Devices.CEmvpboc(this.components);
-            this.cPrinter1 = new Devices.CPrinter(this.components);
-            this.cEmvpbocBank = new Devices.CEmvpboc(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxbYhPrice = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button_1
@@ -48,18 +46,18 @@
             // button_2
             // 
             this.button_2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.button_2.Text = "完成";
             this.button_2.Visible = false;
             // 
             // button_3
             // 
             this.button_3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.button_3.Text = "完成";
+            this.button_3.Text = "优惠";
             this.button_3.Click += new System.EventHandler(this.button_3_Click);
             // 
             // button_4
             // 
             this.button_4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular);
-            this.button_4.Text = "取消";
             this.button_4.Click += new System.EventHandler(this.button_4_Click);
             // 
             // tbYfMoney
@@ -108,35 +106,56 @@
             // 
             this.tbPayList.BackColor = System.Drawing.Color.White;
             this.tbPayList.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.tbPayList.Location = new System.Drawing.Point(6, 110);
+            this.tbPayList.Location = new System.Drawing.Point(6, 135);
             this.tbPayList.Multiline = true;
             this.tbPayList.Name = "tbPayList";
             this.tbPayList.ReadOnly = true;
             this.tbPayList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbPayList.Size = new System.Drawing.Size(234, 151);
+            this.tbPayList.Size = new System.Drawing.Size(234, 126);
             this.tbPayList.TabIndex = 27;
             this.tbPayList.TextChanged += new System.EventHandler(this.tbPayList_TextChanged);
             // 
-            // cPrinter1
+            // label3
             // 
-            this.cPrinter1.AsciiFontHeight = ((byte)(24));
-            this.cPrinter1.ExtendFontHeight = ((byte)(24));
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(20, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 20);
+            this.label3.Text = "优惠";
+            // 
+            // TxbYhPrice
+            // 
+            this.TxbYhPrice.BackColor = System.Drawing.Color.Black;
+            this.TxbYhPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxbYhPrice.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
+            this.TxbYhPrice.ForeColor = System.Drawing.Color.White;
+            this.TxbYhPrice.Location = new System.Drawing.Point(90, 94);
+            this.TxbYhPrice.Name = "TxbYhPrice";
+            this.TxbYhPrice.ReadOnly = true;
+            this.TxbYhPrice.Size = new System.Drawing.Size(128, 35);
+            this.TxbYhPrice.TabIndex = 31;
+            this.TxbYhPrice.Text = "0.00";
             // 
             // FrmSalePay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(240, 320);
+            this.Controls.Add(this.TxbYhPrice);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.tbYfMoney);
             this.Controls.Add(this.tbNowMoney);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbPayList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = false;
             this.Name = "FrmSalePay";
             this.Text = "FrmPay";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Load += new System.EventHandler(this.FrmPay_Load);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.FrmSalePay_Closing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSalePay_KeyDown);
             this.Controls.SetChildIndex(this.button_1, 0);
             this.Controls.SetChildIndex(this.button_2, 0);
             this.Controls.SetChildIndex(this.button_3, 0);
@@ -146,6 +165,8 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.tbNowMoney, 0);
             this.Controls.SetChildIndex(this.tbYfMoney, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.TxbYhPrice, 0);
             this.ResumeLayout(false);
 
         }
@@ -157,8 +178,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPayList;
-        private Devices.CEmvpboc cEmvpbocVip;
-        private Devices.CPrinter cPrinter1;
-        private Devices.CEmvpboc cEmvpbocBank;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TxbYhPrice;
     }
 }

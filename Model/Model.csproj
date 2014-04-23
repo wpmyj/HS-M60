@@ -50,9 +50,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="SqliteUtilities, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SqliteUtilities, Version=1.0.5050.28779, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DAL\SqliteUtilities.dll</HintPath>
+      <HintPath>..\MobilePayment\SqliteUtilities.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,29 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBModel\DBCgBill.cs" />
-    <Compile Include="DBModel\DBJhBill.cs" />
-    <Compile Include="DBModel\DBJhBillInfo.cs" />
-    <Compile Include="DBModel\DBNextNo.cs" />
-    <Compile Include="DBModel\DBPdData.cs" />
-    <Compile Include="DBModel\DBProvince.cs" />
-    <Compile Include="DBModel\DBSalSalePay.cs" />
-    <Compile Include="DBModel\DBPdDataInfo.cs" />
-    <Compile Include="TransModel\TMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransModel\TCarParkCharge.cs" />
-    <Compile Include="TransModel\TCarParkPay.cs" />
-    <Compile Include="TransModel\TCgBill.cs" />
-    <Compile Include="TransModel\TJhBill.cs" />
-    <Compile Include="TransModel\TPacket.cs" />
-    <Compile Include="TransModel\TRFQueryCgBill.cs" />
-    <Compile Include="TransModel\TRFQueryPlu.cs" />
-    <Compile Include="TransModel\TSalPayType.cs" />
-    <Compile Include="TransModel\TSalSale.cs" />
-    <Compile Include="TransModel\TSalSalePay.cs" />
-    <Compile Include="TransModel\TSalSalePlu.cs" />
-    <Compile Include="TransModel\TRFQueryKc.cs" />
-    <Compile Include="TransModel\TUserInfo.cs" />
+    <Compile Include="TCarParkCharge.cs" />
+    <Compile Include="TCarParkPay.cs" />
+    <Compile Include="TPlu.cs" />
+    <Compile Include="TSalPayType.cs" />
+    <Compile Include="TSalSale.cs" />
+    <Compile Include="TSalSalePay.cs" />
+    <Compile Include="TSalSalePlu.cs" />
+    <Compile Include="TSyscfg.cs" />
+    <Compile Include="TUser.cs" />
+    <Compile Include="TVip.cs" />
+    <Compile Include="VCashRpt.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>

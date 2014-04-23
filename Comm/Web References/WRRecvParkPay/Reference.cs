@@ -33,26 +33,24 @@ namespace Comm.WRRecvParkPay {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RecvParkPayFunc", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string RecvParkPayFunc(string sjson, string jsonpay, string UserCode, string UserName, string MobileIp, string PassWord) {
+        public string RecvParkPayFunc(string sjson, string jsonpay, string UserCode, string UserName, string MobileIp) {
             object[] results = this.Invoke("RecvParkPayFunc", new object[] {
                         sjson,
                         jsonpay,
                         UserCode,
                         UserName,
-                        MobileIp,
-                        PassWord});
+                        MobileIp});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginRecvParkPayFunc(string sjson, string jsonpay, string UserCode, string UserName, string MobileIp, string PassWord, System.AsyncCallback callback, object asyncState) {
+        public System.IAsyncResult BeginRecvParkPayFunc(string sjson, string jsonpay, string UserCode, string UserName, string MobileIp, System.AsyncCallback callback, object asyncState) {
             return this.BeginInvoke("RecvParkPayFunc", new object[] {
                         sjson,
                         jsonpay,
                         UserCode,
                         UserName,
-                        MobileIp,
-                        PassWord}, callback, asyncState);
+                        MobileIp}, callback, asyncState);
         }
         
         /// <remarks/>

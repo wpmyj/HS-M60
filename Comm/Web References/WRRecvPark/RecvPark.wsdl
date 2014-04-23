@@ -9,7 +9,6 @@
             <s:element minOccurs="0" maxOccurs="1" name="MobileIp" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="UserCode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>

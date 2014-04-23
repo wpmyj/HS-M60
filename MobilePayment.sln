@@ -3,43 +3,49 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePayment", "MobilePayment\MobilePayment.csproj", "{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBetter.Json.CF", "CodeBetter.Json.CF\CodeBetter.Json.CF.csproj", "{8FA552DE-9A01-49D5-B58B-6104269E80E8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{3BE61D90-EBC9-4DFA-B9F4-A8A4CD4ED729}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devices", "Devices\Devices.csproj", "{0D22C83F-59C2-4196-9884-6B333CAFFCC9}"
+EndProject
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "Setup", "Setup\Setup.vddproj", "{2D26B97A-6A62-43D4-971C-C431A68538BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model_hs", "Model_hs\Model_hs.csproj", "{548738E2-D8D2-46C1-9738-2234C6BA1224}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comm", "Comm\Comm.csproj", "{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pub", "Pub\Pub.csproj", "{D635F10E-EA30-4CA6-8757-4B61DF10F549}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "Base\Base.csproj", "{62DAF646-3D46-4E89-852F-3C0B646C9DCF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{C03D26EF-5C77-4CF9-B8F5-E7372459E395}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBetter.Json.CF", "CodeBetter.Json.CF\CodeBetter.Json.CF.csproj", "{8FA552DE-9A01-49D5-B58B-6104269E80E8}"
 EndProject
 Global
 	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 8
+		SccNumberOfProjects = 9
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = MobilePayment\\MobilePayment.csproj
-		SccProjectName1 = \u0022$/M.M60手持Pos/trunk/MobilePayment\u0022,\u0020CUFAAAAA
+		SccProjectName1 = \u0022$/M60手持Pos/branches/成都连锁展会Demo/MobilePayment\u0022,\u0020HVEAAAAA
 		SccLocalPath1 = MobilePayment
-		SccProjectUniqueName2 = CodeBetter.Json.CF\\CodeBetter.Json.CF.csproj
-		SccProjectName2 = \u0022$/K.控件库/J.JSON/CodeBetter.Json\u0022,\u0020QRMAAAAA
-		SccLocalPath2 = CodeBetter.Json.CF
-		SccProjectUniqueName3 = Model\\Model.csproj
-		SccProjectName3 = \u0022$/M.M60手持Pos/trunk/Model\u0022,\u0020DYFAAAAA
-		SccLocalPath3 = Model
-		SccProjectUniqueName4 = Comm\\Comm.csproj
-		SccProjectName4 = \u0022$/M.M60手持Pos/trunk/Comm\u0022,\u0020ARFAAAAA
-		SccLocalPath4 = Comm
-		SccProjectUniqueName5 = Pub\\Pub.csproj
+		SccProjectUniqueName2 = Model\\Model.csproj
+		SccProjectName2 = \u0022$/M60手持Pos/branches/成都连锁展会Demo/Model\u0022,\u0020CDFAAAAA
+		SccLocalPath2 = Model
+		SccProjectUniqueName3 = DAL\\DAL.csproj
+		SccProjectName3 = \u0022$/M60手持Pos/branches/成都连锁展会Demo/DAL\u0022,\u0020ATEAAAAA
+		SccLocalPath3 = DAL
+		SccProjectUniqueName4 = Devices\\Devices.csproj
+		SccProjectName4 = \u0022$/M60手持Pos/branches/成都连锁展会Demo/Devices\u0022,\u0020HUEAAAAA
+		SccLocalPath4 = Devices
+		SccProjectUniqueName5 = Setup\\Setup.vddproj
+		SccProjectName5 = \u0022$/M60手持Pos/branches/成都连锁展会Demo/Setup\u0022,\u0020IFFAAAAA
 		SccLocalPath5 = .
-		SccProjectFilePathRelativizedFromConnection5 = Pub\\
-		SccProjectUniqueName6 = Base\\Base.csproj
-		SccLocalPath6 = .
-		SccProjectFilePathRelativizedFromConnection6 = Base\\
-		SccProjectUniqueName7 = DAL\\DAL.csproj
-		SccLocalPath7 = .
-		SccProjectFilePathRelativizedFromConnection7 = DAL\\
+		SccProjectFilePathRelativizedFromConnection5 = Setup\\
+		SccProjectUniqueName6 = Model_hs\\Model_hs.csproj
+		SccProjectName6 = \u0022$/M60手持Pos/branches/成都连锁展会Demo/Model_hs\u0022,\u0020IEFAAAAA
+		SccLocalPath6 = Model_hs
+		SccProjectUniqueName7 = Comm\\Comm.csproj
+		SccProjectName7 = \u0022$/M60手持Pos/branches/成都连锁展会Demo/Comm\u0022,\u0020UPEAAAAA
+		SccLocalPath7 = Comm
+		SccProjectUniqueName8 = CodeBetter.Json.CF\\CodeBetter.Json.CF.csproj
+		SccProjectName8 = \u0022$/M60手持Pos/branches/成都连锁展会Demo/CodeBetter.Json.CF\u0022,\u0020SOEAAAAA
+		SccLocalPath8 = CodeBetter.Json.CF
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,30 +58,32 @@ Global
 		{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BE61D90-EBC9-4DFA-B9F4-A8A4CD4ED729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BE61D90-EBC9-4DFA-B9F4-A8A4CD4ED729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BE61D90-EBC9-4DFA-B9F4-A8A4CD4ED729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BE61D90-EBC9-4DFA-B9F4-A8A4CD4ED729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D22C83F-59C2-4196-9884-6B333CAFFCC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D22C83F-59C2-4196-9884-6B333CAFFCC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D22C83F-59C2-4196-9884-6B333CAFFCC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D22C83F-59C2-4196-9884-6B333CAFFCC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D26B97A-6A62-43D4-971C-C431A68538BA}.Debug|Any CPU.ActiveCfg = Debug
+		{2D26B97A-6A62-43D4-971C-C431A68538BA}.Release|Any CPU.ActiveCfg = Release
+		{548738E2-D8D2-46C1-9738-2234C6BA1224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548738E2-D8D2-46C1-9738-2234C6BA1224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548738E2-D8D2-46C1-9738-2234C6BA1224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548738E2-D8D2-46C1-9738-2234C6BA1224}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D635F10E-EA30-4CA6-8757-4B61DF10F549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D635F10E-EA30-4CA6-8757-4B61DF10F549}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D635F10E-EA30-4CA6-8757-4B61DF10F549}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D635F10E-EA30-4CA6-8757-4B61DF10F549}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62DAF646-3D46-4E89-852F-3C0B646C9DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62DAF646-3D46-4E89-852F-3C0B646C9DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62DAF646-3D46-4E89-852F-3C0B646C9DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62DAF646-3D46-4E89-852F-3C0B646C9DCF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C03D26EF-5C77-4CF9-B8F5-E7372459E395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C03D26EF-5C77-4CF9-B8F5-E7372459E395}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C03D26EF-5C77-4CF9-B8F5-E7372459E395}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C03D26EF-5C77-4CF9-B8F5-E7372459E395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
