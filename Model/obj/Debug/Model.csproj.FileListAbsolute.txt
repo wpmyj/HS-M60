@@ -1,0 +1,15 @@
+D:\海信广场_手持支付\Model\bin\Debug\Model.dll
+D:\海信广场_手持支付\Model\bin\Debug\Model.pdb
+D:\海信广场_手持支付\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\海信广场_手持支付\Model\obj\Debug\Model.dll
+D:\海信广场_手持支付\Model\obj\Debug\Model.pdb
+D:\海信广场_手持支付\trunk\Model\bin\Debug\Model.dll
+D:\海信广场_手持支付\trunk\Model\bin\Debug\Model.pdb
+D:\海信广场_手持支付\trunk\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\海信广场_手持支付\trunk\Model\obj\Debug\Model.dll
+D:\海信广场_手持支付\trunk\Model\obj\Debug\Model.pdb
+D:\His_M60设备程序\trunk\Model\bin\Debug\Model.dll
+D:\His_M60设备程序\trunk\Model\bin\Debug\Model.pdb
+D:\His_M60设备程序\trunk\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\His_M60设备程序\trunk\Model\obj\Debug\Model.dll
+D:\His_M60设备程序\trunk\Model\obj\Debug\Model.pdb

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="QueryKc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrgCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Packet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryKcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryKcResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Packet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="QueryKcSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryKc" />
+  </wsdl:message>
+  <wsdl:message name="QueryKcSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryKcResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RFQueryKcSoap">
+    <wsdl:operation name="QueryKc">
+      <wsdl:input message="tns:QueryKcSoapIn" />
+      <wsdl:output message="tns:QueryKcSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RFQueryKcSoap" type="tns:RFQueryKcSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryKc">
+      <soap:operation soapAction="http://tempuri.org/QueryKc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RFQueryKcSoap12" type="tns:RFQueryKcSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryKc">
+      <soap12:operation soapAction="http://tempuri.org/QueryKc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RFQueryKc">
+    <wsdl:port name="RFQueryKcSoap" binding="tns:RFQueryKcSoap">
+      <soap:address location="http://172.16.134.126/RFQueryKc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RFQueryKcSoap12" binding="tns:RFQueryKcSoap12">
+      <soap12:address location="http://172.16.134.126/RFQueryKc.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

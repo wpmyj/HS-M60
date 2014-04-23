@@ -1,0 +1,6 @@
+取消 	esc
+确认 	enter
+#  	.
+菜单	F8
+字母	F9
+清除	delete

@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePayment", "MobilePayment\MobilePayment.csproj", "{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBetter.Json.CF", "CodeBetter.Json.CF\CodeBetter.Json.CF.csproj", "{8FA552DE-9A01-49D5-B58B-6104269E80E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comm", "Comm\Comm.csproj", "{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pub", "Pub\Pub.csproj", "{D635F10E-EA30-4CA6-8757-4B61DF10F549}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "Base\Base.csproj", "{62DAF646-3D46-4E89-852F-3C0B646C9DCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{C03D26EF-5C77-4CF9-B8F5-E7372459E395}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 8
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MobilePayment\\MobilePayment.csproj
+		SccProjectName1 = \u0022$/M.M60手持Pos/trunk/MobilePayment\u0022,\u0020CUFAAAAA
+		SccLocalPath1 = MobilePayment
+		SccProjectUniqueName2 = CodeBetter.Json.CF\\CodeBetter.Json.CF.csproj
+		SccProjectName2 = \u0022$/K.控件库/J.JSON/CodeBetter.Json\u0022,\u0020QRMAAAAA
+		SccLocalPath2 = CodeBetter.Json.CF
+		SccProjectUniqueName3 = Model\\Model.csproj
+		SccProjectName3 = \u0022$/M.M60手持Pos/trunk/Model\u0022,\u0020DYFAAAAA
+		SccLocalPath3 = Model
+		SccProjectUniqueName4 = Comm\\Comm.csproj
+		SccProjectName4 = \u0022$/M.M60手持Pos/trunk/Comm\u0022,\u0020ARFAAAAA
+		SccLocalPath4 = Comm
+		SccProjectUniqueName5 = Pub\\Pub.csproj
+		SccLocalPath5 = .
+		SccProjectFilePathRelativizedFromConnection5 = Pub\\
+		SccProjectUniqueName6 = Base\\Base.csproj
+		SccLocalPath6 = .
+		SccProjectFilePathRelativizedFromConnection6 = Base\\
+		SccProjectUniqueName7 = DAL\\DAL.csproj
+		SccLocalPath7 = .
+		SccProjectFilePathRelativizedFromConnection7 = DAL\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A9C685-D7F9-48AC-869A-C7A5BBFA891A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA552DE-9A01-49D5-B58B-6104269E80E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D2AA419-2A39-4E93-A842-7A6DD75F2D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D635F10E-EA30-4CA6-8757-4B61DF10F549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D635F10E-EA30-4CA6-8757-4B61DF10F549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D635F10E-EA30-4CA6-8757-4B61DF10F549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D635F10E-EA30-4CA6-8757-4B61DF10F549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62DAF646-3D46-4E89-852F-3C0B646C9DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62DAF646-3D46-4E89-852F-3C0B646C9DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62DAF646-3D46-4E89-852F-3C0B646C9DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62DAF646-3D46-4E89-852F-3C0B646C9DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C03D26EF-5C77-4CF9-B8F5-E7372459E395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03D26EF-5C77-4CF9-B8F5-E7372459E395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03D26EF-5C77-4CF9-B8F5-E7372459E395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03D26EF-5C77-4CF9-B8F5-E7372459E395}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

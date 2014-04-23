@@ -1,0 +1,15 @@
+﻿PosNo=001
+WSURL=http://172.16.100.120
+ScanMode=0
+OrgCode=1009
+BillHead=海信广场
+BillFoot1= 谢谢惠顾
+BillFoot2= 欢迎下次光临
+BillFoot3= 88888888
+DefaultProvince=鲁
+ExeFilePath_Bank=\FlashDisk\Program Files\环迅银行卡收单\emvpboc.exe
+InFilePath_Bank=\FlashDisk\ViewAppFile\M60ShareOut.dat
+OutFilePath_Bank=\FlashDisk\ViewAppFile\M60ShareIn.dat
+ExeFilePath_Vip=\FlashDisk\Program Files\储值磁条卡应用\海信联盟商户磁条卡.exe
+InFilePath_Vip=\FlashDisk\Program Files\储值磁条卡应用\EPayAppFile\M60ShareOut.dat
+OutFilePath_Vip=\FlashDisk\Program Files\储值磁条卡应用\EPayAppFile\M60ShareIn.dat
