@@ -4,20 +4,25 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{41294DF7-E9E4-43E6-A71A-E2B0FCF3F853}</ProjectGuid>
+    <ProjectGuid>{8FA552DE-9A01-49D5-B58B-6104269E80E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Model</RootNamespace>
-    <AssemblyName>Model</AssemblyName>
+    <RootNamespace>CodeBetter.Json.CF</RootNamespace>
+    <AssemblyName>CodeBetter.Json.CF</AssemblyName>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PlatformFamilyName>WindowsCE</PlatformFamilyName>
     <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
     <OSVersion>5.0</OSVersion>
-    <DeployDirSuffix>Model</DeployDirSuffix>
+    <DeployDirSuffix>CodeBetter.Json.CF</DeployDirSuffix>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <NativePlatformName>Windows CE</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <NativePlatformName>Windows CE</NativePlatformName>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
@@ -54,43 +59,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="SqliteUtilities, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DAL\SqliteUtilities.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBModel\DBCgBill.cs" />
-    <Compile Include="DBModel\DBJhBill.cs" />
-    <Compile Include="DBModel\DBJhBillInfo.cs" />
-    <Compile Include="DBModel\DBNextNo.cs" />
-    <Compile Include="DBModel\DBPdData.cs" />
-    <Compile Include="DBModel\DBProvince.cs" />
-    <Compile Include="DBModel\DBSalSalePay.cs" />
-    <Compile Include="DBModel\DBPdDataInfo.cs" />
-    <Compile Include="TransModel\TMessage.cs" />
+    <Compile Include="Converter.cs" />
+    <Compile Include="Helpers\ListHelper.cs" />
+    <Compile Include="Helpers\ReflectionHelper.cs" />
+    <Compile Include="JsonDeserializer.cs" />
+    <Compile Include="JsonException.cs" />
+    <Compile Include="JsonReader.cs" />
+    <Compile Include="JsonSerializer.cs" />
+    <Compile Include="JsonTokens.cs" />
+    <Compile Include="JsonWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransModel\TCarParkCharge.cs" />
-    <Compile Include="TransModel\TCarParkPay.cs" />
-    <Compile Include="TransModel\TCgBill.cs" />
-    <Compile Include="TransModel\TJhBill.cs" />
-    <Compile Include="TransModel\TPacket.cs" />
-    <Compile Include="TransModel\TRFQueryCgBill.cs" />
-    <Compile Include="TransModel\TRFQueryPlu.cs" />
-    <Compile Include="TransModel\TSalPayType.cs" />
-    <Compile Include="TransModel\TSalSale.cs" />
-    <Compile Include="TransModel\TSalSalePay.cs" />
-    <Compile Include="TransModel\TSalSalePlu.cs" />
-    <Compile Include="TransModel\TRFQueryKc.cs" />
-    <Compile Include="TransModel\TUserInfo.cs" />
+    <Compile Include="SerializeIncludingBaseAttribute.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
@@ -105,4 +92,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v3.5'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
 </Project>

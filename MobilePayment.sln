@@ -16,31 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{C03D26EF-5C77-4CF9-B8F5-E7372459E395}"
 EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 8
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = MobilePayment\\MobilePayment.csproj
-		SccProjectName1 = \u0022$/M.M60手持Pos/trunk/MobilePayment\u0022,\u0020CUFAAAAA
-		SccLocalPath1 = MobilePayment
-		SccProjectUniqueName2 = CodeBetter.Json.CF\\CodeBetter.Json.CF.csproj
-		SccProjectName2 = \u0022$/K.控件库/J.JSON/CodeBetter.Json\u0022,\u0020QRMAAAAA
-		SccLocalPath2 = CodeBetter.Json.CF
-		SccProjectUniqueName3 = Model\\Model.csproj
-		SccProjectName3 = \u0022$/M.M60手持Pos/trunk/Model\u0022,\u0020DYFAAAAA
-		SccLocalPath3 = Model
-		SccProjectUniqueName4 = Comm\\Comm.csproj
-		SccProjectName4 = \u0022$/M.M60手持Pos/trunk/Comm\u0022,\u0020ARFAAAAA
-		SccLocalPath4 = Comm
-		SccProjectUniqueName5 = Pub\\Pub.csproj
-		SccLocalPath5 = .
-		SccProjectFilePathRelativizedFromConnection5 = Pub\\
-		SccProjectUniqueName6 = Base\\Base.csproj
-		SccLocalPath6 = .
-		SccProjectFilePathRelativizedFromConnection6 = Base\\
-		SccProjectUniqueName7 = DAL\\DAL.csproj
-		SccLocalPath7 = .
-		SccProjectFilePathRelativizedFromConnection7 = DAL\\
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

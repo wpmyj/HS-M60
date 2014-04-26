@@ -1,0 +1,5 @@
+E:\Documents\项目开发\1.CSharp\C.Component\J.JSON\C.CodeBetter.JSON\trunk\bin\Release\CodeBetter.Json.CF.dll
+E:\Documents\项目开发\1.CSharp\C.Component\J.JSON\C.CodeBetter.JSON\trunk\bin\Release\CodeBetter.Json.CF.pdb
+E:\Documents\项目开发\1.CSharp\C.Component\J.JSON\C.CodeBetter.JSON\trunk\obj\Release\ResolveAssemblyReference.cache
+E:\Documents\项目开发\1.CSharp\C.Component\J.JSON\C.CodeBetter.JSON\trunk\obj\Release\CodeBetter.Json.CF.dll
+E:\Documents\项目开发\1.CSharp\C.Component\J.JSON\C.CodeBetter.JSON\trunk\obj\Release\CodeBetter.Json.CF.pdb
